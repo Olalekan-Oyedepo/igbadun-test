@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Become a Member - Ìgbà-Dún</title>
+    <meta name="description" content="Join Ìgbà-Dún and become part of our vibrant community celebrating Yoruba culture in Scotland">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Additional styles for the form */
+        .form-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-section {
+            margin-bottom: 30px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .form-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .form-input,
+        .form-select,
+        .form-textarea {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .form-textarea {
+            min-height: 100px;
+        }
+
+        .checkbox-group {
+            margin-top: 10px;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+
+        .checkbox-input {
+            margin-right: 10px;
+            margin-top: 4px;
+        }
+
+        .submit-button {
+            background-color: #9B4819;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+
+        .submit-button:hover {
+            background-color: #7C3A14;
+        }
+
+        .error-message {
+            color: #dc2626;
+            font-size: 14px;
+            margin-top: 4px;
+        }
+
+        .success-message {
+            color: #059669;
+            background-color: #d1fae5;
+            padding: 12px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+
+        .error {
+            border-color: #dc2626 !important;
+        }
+
+        .required-field::after {
+            content: '*';
+            color: #dc2626;
+            margin-left: 4px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar" role="banner">
+        <div class="container">
+            <div class="nav-links">
+                <a href="values.html" class="nav-link">Values</a>
+                <a href="activities.html" class="nav-link">Activities</a>
+                <a href="events.html" class="nav-link">Events</a>
+                <a href="resources.html" class="nav-link">Resources</a>
+            </div>
+            <div class="nav-right">
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                </div>
+                <a href="#" class="donate-button">Donate</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="form-container">
+        <h1 class="section-title">Become a Member</h1>
+        <p class="section-description">Join our vibrant community and be part of celebrating Yoruba culture in Scotland</p>
+
+        <form id="membershipForm" onsubmit="handleSubmit(event)" class="space-y-8">
+            <!-- Personal Information Section -->
+            <div class="form-section">
+                <h2 class="text-2xl font-semibold mb-4">Personal Information</h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label class="form-label required-field" for="fullName">Full Name</label>
+                        <input type="text" id="fullName" name="fullName" class="form-input" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label required-field" for="dateOfBirth">Date of Birth</label>
+                        <input type="date" id="dateOfBirth" name="dateOfBirth" class="form-input" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label required-field" for="email">Email</label>
+                        <input type="email" id="email" name="email" class="form-input" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label required-field" for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" class="form-input" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label required-field" for="address">Address</label>
+                        <input type="text" id="address" name="address" class="form-input" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="pronouns">Preferred Pronouns (optional)</label>
+                        <input type="text" id="pronouns" name="pronouns" class="form-input">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Background and Interests Section -->
+            <div class="form-section">
+                <h2 class="text-2xl font-semibold mb-4">Background and Interests</h2>
+                
+                <div class="form-group">
+                    <label class="form-label required-field">What is your current level of familiarity with Yorùbá language?</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="radio" name="languageLevel" value="No knowledge" required>
+                            No knowledge
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="radio" name="languageLevel" value="Beginner">
+                            Beginner
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="radio" name="languageLevel" value="Intermediate">
+                            Intermediate
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="radio" name="languageLevel" value="Advanced">
+                            Advanced
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="radio" name="languageLevel" value="Native speaker">
+                            Native speaker
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">What aspects of Yorùbá culture are you most interested in?</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="interests" value="language" class="checkbox-input">
+                            Language
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="interests" value="music" class="checkbox-input">
+                            Music
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="interests" value="dance" class="checkbox-input">
+                            Dance
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="interests" value="art" class="checkbox-input">
+                            Art
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="interests" value="literature" class="checkbox-input">
+                            Literature
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="interests" value="history" class="checkbox-input">
+                            History
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="interests" value="food" class="checkbox-input">
+                            Food
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label required-field" for="whyJoin">Why do you want to join Ìgbà-Dún? (100 words max)</label>
+                    <textarea id="whyJoin" name="whyJoin" class="form-textarea" required></textarea>
+                </div>
+            </div>
+
+            <!-- Commitment Section -->
+            <div class="form-section">
+                <h2 class="text-2xl font-semibold mb-4">Commitment</h2>
+                
+                <div class="form-group">
+                    <label class="form-label required-field">Are you able to commit to regular attendance at club meetings and events?</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="radio" name="attendance" value="Yes" required>
+                            Yes
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="radio" name="attendance" value="No">
+                            No
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="radio" name="attendance" value="Sometimes">
+                            Sometimes
+                        </label>
+                    </div>
+                </div>
+
+                <div id="attendanceExplanationContainer" class="form-group" style="display: none;">
+                    <label class="form-label" for="attendanceExplanation">Please explain:</label>
+                    <input type="text" id="attendanceExplanation" name="attendanceExplanation" class="form-input">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label required-field">Would you be interested in volunteering for club activities or committees?</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="radio" name="volunteering" value="Yes" required>
+                            Yes
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="radio" name="volunteering" value="No">
+                            No
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="radio" name="volunteering" value="Maybe">
+                            Maybe
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Agreements Section -->
+            <div class="form-section">
+                <h2 class="text-2xl font-semibold mb-4">Agreements</h2>
+                
+                <div class="checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="agreements" value="codeOfConduct" class="checkbox-input" required>
+                        I have read and agree to abide by Ìgbà-Dún's <a href="values.html" target="_blank" class="text-primary">Code of Conduct and Values and Principles</a>.
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="agreements" value="applicationReview" class="checkbox-input" required>
+                        I understand that my application will be reviewed by the club's committee and that membership is subject to their approval.
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="agreements" value="dataConsent" class="checkbox-input" required>
+                        I consent to Ìgbà-Dún storing and processing my personal data for the purposes of club administration and communication.
+                    </label>
+                </div>
+            </div>
+
+            <div id="formMessage" class="success-message" style="display: none;"></div>
+
+            <div style="text-align: center;">
+                <button type="submit" class="submit-button">Submit Application</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h2>Ìgbà-Dún</h2>
+                <p>Celebrating Yoruba Culture in Scotland</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="values.html">Our Values</a>
+                    <a href="activities.html">Activities</a>
+                    <a href="events.html">Events</a>
+                    <a href="resources.html">Resources</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <a href="#">Contact Us</a>
+                    <a href="#">Newsletter</a>
+                    <a href="#">Volunteer</a>
+                </div>
+            </div>
+            <div class="footer-social">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fab fa-
