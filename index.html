@@ -3,34 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to Ìgbà-Dún</title>
-    <meta name="description" content="Celebrating and sharing Yoruba culture in Scotland">
+    <title>Welcome to Ìgbà-Dún - Celebrating Yoruba Culture in Scotland</title>
+    <meta name="description" content="Ìgbà-Dún celebrates and shares Yoruba culture in Scotland through community events, language classes, and cultural exchange.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Top Bar with Social Media and Donate Button -->
-    <div class="top-bar">
+    <!-- Skip to Main Content -->
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+
+    <!-- Top Bar -->
+    <div class="top-bar" role="banner">
         <div class="top-bar-content">
-            <div class="social-icons">
-                <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
-                <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
-                <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+            <div class="social-icons" aria-label="Social media links">
+                <a href="#" aria-label="Visit our Facebook page">
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+                <a href="#" aria-label="Follow us on Instagram">
+                    <i class="fab fa-instagram" aria-hidden="true"></i>
+                </a>
+                <a href="#" aria-label="Follow us on Twitter">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+                <a href="#" aria-label="Subscribe to our YouTube channel">
+                    <i class="fab fa-youtube" aria-hidden="true"></i>
+                </a>
             </div>
-            <a href="#" class="donate-button">Donate</a>
+            <a href="#" class="donate-button" aria-label="Make a donation">Donate</a>
         </div>
     </div>
 
     <!-- Navigation -->
-    <nav class="main-nav">
+    <nav class="main-nav" role="navigation" aria-label="Main navigation">
         <div class="nav-content">
-            <a href="index.html" class="nav-logo">Ìgbà-Dún</a>
-            <button class="mobile-menu-button" aria-label="Toggle menu">
+            <a href="index.html" class="nav-logo" aria-label="Ìgbà-Dún Home">
+                Ìgbà-Dún
+            </a>
+            <button class="mobile-menu-button" aria-label="Toggle menu" aria-expanded="false">
                 <span class="menu-icon"></span>
             </button>
             <div class="nav-links">
-                <a href="index.html" class="active">Home</a>
+                <a href="index.html" class="active" aria-current="page">Home</a>
                 <a href="values.html">Values</a>
                 <a href="activities.html">Activities</a>
                 <a href="events.html">Events</a>
@@ -38,13 +54,103 @@
         </div>
     </nav>
 
-    <!-- [Rest of the content remains the same] -->
+    <!-- Main Content -->
+    <main id="main-content" role="main">
+        <!-- Core Values Section -->
+        <section id="core-values" class="values-section" aria-labelledby="values-heading">
+            <h2 id="values-heading" class="section-heading">Our Core Values</h2>
+            
+            <div class="values-grid" role="list">
+                <!-- Respect -->
+                <article class="value-card" role="listitem">
+                    <h3 id="value-respect">Respect</h3>
+                    <p class="yoruba-text" lang="yo" aria-label="Respect in Yoruba">
+                        <span class="sr-only">Yoruba word for Respect:</span>
+                        Ọwọ́
+                    </p>
+                    <div class="value-description">
+                        <p>We honor and respect diverse perspectives, treating everyone with dignity and consideration.</p>
+                    </div>
+                </article>
+
+                <!-- Consideration -->
+                <article class="value-card" role="listitem">
+                    <h3 id="value-consideration">Consideration</h3>
+                    <p class="yoruba-text" lang="yo" aria-label="Consideration in Yoruba">
+                        <span class="sr-only">Yoruba word for Consideration:</span>
+                        Ìmọ̀sọ́
+                    </p>
+                    <div class="value-description">
+                        <p>We act with thoughtfulness and care in all our interactions and decisions.</p>
+                    </div>
+                </article>
+
+                <!-- Communication -->
+                <article class="value-card" role="listitem">
+                    <h3 id="value-communication">Communication</h3>
+                    <p class="yoruba-text" lang="yo" aria-label="Communication in Yoruba">
+                        <span class="sr-only">Yoruba word for Communication:</span>
+                        Ìbáraẹnisọ̀rọ̀
+                    </p>
+                    <div class="value-description">
+                        <p>We foster open dialogue and clear communication across all channels.</p>
+                    </div>
+                </article>
+
+                <!-- Responsibility -->
+                <article class="value-card" role="listitem">
+                    <h3 id="value-responsibility">Responsibility</h3>
+                    <p class="yoruba-text" lang="yo" aria-label="Responsibility in Yoruba">
+                        <span class="sr-only">Yoruba word for Responsibility:</span>
+                        Ojúṣe
+                    </p>
+                    <div class="value-description">
+                        <p>We take ownership of our actions and commitments to the community.</p>
+                    </div>
+                </article>
+
+                <!-- Love -->
+                <article class="value-card" role="listitem">
+                    <h3 id="value-love">Love</h3>
+                    <p class="yoruba-text" lang="yo" aria-label="Love in Yoruba">
+                        <span class="sr-only">Yoruba word for Love:</span>
+                        Ìfẹ́
+                    </p>
+                    <div class="value-description">
+                        <p>We lead with compassion and care in building our community.</p>
+                    </div>
+                </article>
+            </div>
+
+            <div class="values-cta">
+                <a href="values.html" class="button-primary" role="button" aria-label="Learn more about our values and principles">
+                    Learn More About Our Values
+                </a>
+            </div>
+        </section>
+
+        <!-- Additional sections can be added here -->
+    </main>
 
     <script>
         // Mobile menu functionality
-        document.querySelector('.mobile-menu-button').addEventListener('click', function() {
+        const mobileMenuButton = document.querySelector('.mobile-menu-button');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenuButton.addEventListener('click', function() {
+            const isExpanded = this.getAttribute('aria-expanded') === 'true';
+            this.setAttribute('aria-expanded', !isExpanded);
             this.classList.toggle('active');
-            document.querySelector('.nav-links').classList.toggle('show');
+            navLinks.classList.toggle('show');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!mobileMenuButton.contains(event.target) && !navLinks.contains(event.target)) {
+                mobileMenuButton.setAttribute('aria-expanded', 'false');
+                mobileMenuButton.classList.remove('active');
+                navLinks.classList.remove('show');
+            }
         });
     </script>
 </body>
