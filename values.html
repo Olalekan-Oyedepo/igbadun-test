@@ -201,18 +201,24 @@
 
         .core-values-grid {
             display: grid;
-            gap: 1.5rem;
+            gap: 2rem;
             margin-bottom: 3rem;
             grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .value-card {
             background: #fff;
             border-radius: 8px;
-            padding: 1.5rem;
+            padding: 2rem;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             border-left: 4px solid #2c5282;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
 
         .value-card:hover {
@@ -222,25 +228,30 @@
 
         .value-card h2 {
             color: #2c5282;
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.75rem;
             font-weight: 600;
             display: flex;
             align-items: center;
             font-family: 'Inter', sans-serif;
+            line-height: 1.2;
         }
 
         .value-card h2::before {
             content: "•";
             color: #2c5282;
-            margin-right: 0.5rem;
-            font-size: 1.8rem;
+            margin-right: 0.75rem;
+            font-size: 2rem;
+            line-height: 1;
         }
 
         .value-card p {
             color: #4a5568;
-            line-height: 1.6;
+            line-height: 1.8;
             font-size: 1.1rem;
+            margin: 0;
+            flex-grow: 1;
+            max-width: 65ch;
         }
 
         .principles-section {
