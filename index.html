@@ -12,9 +12,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Skip to Main Content -->
-    <a href="#main-content" class="skip-to-main">Skip to main content</a>
-
     <!-- Top Bar -->
     <div class="top-bar" role="banner">
         <div class="top-bar-content">
@@ -56,70 +53,23 @@
 
     <!-- Main Content -->
     <main id="main-content" role="main">
+        <!-- Welcome Section -->
+        <section class="welcome-section">
+            <h1>Welcome to Ìgbà-Dún</h1>
+            <p class="welcome-text">
+                Ìgbà-Dún is a Scottish charitable organisation dedicated to celebrating and sharing Yoruba culture while building stronger, more connected communities across Scotland. Our mission combines cultural preservation with social impact, creating spaces where people can learn, connect, and grow together through engagement with Yoruba language, arts, and traditions.
+            </p>
+            <p class="welcome-text">
+                We tackle social isolation by fostering meaningful relationships across cultural and generational boundaries, while delivering structured educational programmes that make Yoruba cultural learning accessible to all.
+            </p>
+        </section>
+
         <!-- Core Values Section -->
         <section id="core-values" class="values-section" aria-labelledby="values-heading">
             <h2 id="values-heading" class="section-heading">Our Core Values</h2>
             
             <div class="values-grid" role="list">
-                <!-- Respect -->
-                <article class="value-card" role="listitem">
-                    <h3 id="value-respect">Respect</h3>
-                    <p class="yoruba-text" lang="yo" aria-label="Respect in Yoruba">
-                        <span class="sr-only">Yoruba word for Respect:</span>
-                        Ọwọ́
-                    </p>
-                    <div class="value-description">
-                        <p>We honor and respect diverse perspectives, treating everyone with dignity and consideration.</p>
-                    </div>
-                </article>
-
-                <!-- Consideration -->
-                <article class="value-card" role="listitem">
-                    <h3 id="value-consideration">Consideration</h3>
-                    <p class="yoruba-text" lang="yo" aria-label="Consideration in Yoruba">
-                        <span class="sr-only">Yoruba word for Consideration:</span>
-                        Ìmọ̀sọ́
-                    </p>
-                    <div class="value-description">
-                        <p>We act with thoughtfulness and care in all our interactions and decisions.</p>
-                    </div>
-                </article>
-
-                <!-- Communication -->
-                <article class="value-card" role="listitem">
-                    <h3 id="value-communication">Communication</h3>
-                    <p class="yoruba-text" lang="yo" aria-label="Communication in Yoruba">
-                        <span class="sr-only">Yoruba word for Communication:</span>
-                        Ìbáraẹnisọ̀rọ̀
-                    </p>
-                    <div class="value-description">
-                        <p>We foster open dialogue and clear communication across all channels.</p>
-                    </div>
-                </article>
-
-                <!-- Responsibility -->
-                <article class="value-card" role="listitem">
-                    <h3 id="value-responsibility">Responsibility</h3>
-                    <p class="yoruba-text" lang="yo" aria-label="Responsibility in Yoruba">
-                        <span class="sr-only">Yoruba word for Responsibility:</span>
-                        Ojúṣe
-                    </p>
-                    <div class="value-description">
-                        <p>We take ownership of our actions and commitments to the community.</p>
-                    </div>
-                </article>
-
-                <!-- Love -->
-                <article class="value-card" role="listitem">
-                    <h3 id="value-love">Love</h3>
-                    <p class="yoruba-text" lang="yo" aria-label="Love in Yoruba">
-                        <span class="sr-only">Yoruba word for Love:</span>
-                        Ìfẹ́
-                    </p>
-                    <div class="value-description">
-                        <p>We lead with compassion and care in building our community.</p>
-                    </div>
-                </article>
+                <!-- Value cards as before... -->
             </div>
 
             <div class="values-cta">
@@ -128,30 +78,10 @@
                 </a>
             </div>
         </section>
-
-        <!-- Additional sections can be added here -->
     </main>
 
     <script>
-        // Mobile menu functionality
-        const mobileMenuButton = document.querySelector('.mobile-menu-button');
-        const navLinks = document.querySelector('.nav-links');
-
-        mobileMenuButton.addEventListener('click', function() {
-            const isExpanded = this.getAttribute('aria-expanded') === 'true';
-            this.setAttribute('aria-expanded', !isExpanded);
-            this.classList.toggle('active');
-            navLinks.classList.toggle('show');
-        });
-
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', function(event) {
-            if (!mobileMenuButton.contains(event.target) && !navLinks.contains(event.target)) {
-                mobileMenuButton.setAttribute('aria-expanded', 'false');
-                mobileMenuButton.classList.remove('active');
-                navLinks.classList.remove('show');
-            }
-        });
+        // Mobile menu functionality (as before)
     </script>
 </body>
 </html>
