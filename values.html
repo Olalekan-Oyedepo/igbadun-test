@@ -203,10 +203,11 @@
             display: grid;
             gap: 2rem;
             margin-bottom: 3rem;
-            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            grid-template-columns: repeat(2, minmax(500px, 1fr));
             max-width: 1200px;
             margin-left: auto;
             margin-right: auto;
+            justify-content: center;
         }
 
         .value-card {
@@ -224,6 +225,13 @@
         .value-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .value-card:last-child {
+            grid-column: 1 / -1;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .value-card h2 {
@@ -252,6 +260,18 @@
             margin: 0;
             flex-grow: 1;
             max-width: 65ch;
+            text-align: justify;
+        }
+
+        @media (max-width: 1100px) {
+            .core-values-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .value-card:last-child {
+                grid-column: auto;
+                max-width: none;
+            }
         }
 
         .principles-section {
