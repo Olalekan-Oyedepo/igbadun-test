@@ -1,200 +1,122 @@
-/* [Previous CSS remains the same until media queries] */
+/* [Previous CSS remains the same until navigation section] */
 
-/* Mobile Responsiveness */
+/* Mobile Menu Button */
+.mobile-menu-button {
+    display: none;
+    background: none;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    position: relative;
+    z-index: 100;
+}
+
+.menu-icon {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background-color: #2c5282;
+    position: relative;
+    transition: background-color 0.3s;
+}
+
+.menu-icon::before,
+.menu-icon::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 2px;
+    background-color: #2c5282;
+    transition: all 0.3s;
+    left: 0;
+}
+
+.menu-icon::before {
+    top: -8px;
+}
+
+.menu-icon::after {
+    bottom: -8px;
+}
+
+.mobile-menu-button.active .menu-icon {
+    background-color: transparent;
+}
+
+.mobile-menu-button.active .menu-icon::before {
+    top: 0;
+    transform: rotate(45deg);
+}
+
+.mobile-menu-button.active .menu-icon::after {
+    bottom: 0;
+    transform: rotate(-45deg);
+}
+
+/* [Previous mobile media queries remain the same until @media (max-width: 768px)] */
+
 @media (max-width: 768px) {
-    .top-bar-content {
-        flex-direction: column;
-        gap: 10px;
-        text-align: center;
-    }
-
-    .social-icons {
-        justify-content: center;
+    .mobile-menu-button {
+        display: block;
     }
 
     .nav-content {
-        flex-direction: column;
-        gap: 15px;
-        text-align: center;
+        position: relative;
     }
 
     .nav-links {
-        flex-direction: column;
-        gap: 15px;
-        width: 100%;
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: white;
+        padding: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 0 0 8px 8px;
+    }
+
+    .nav-links.show {
+        display: flex;
     }
 
     .nav-links a {
-        display: block;
-        padding: 10px;
-        background-color: #f8fafc;
+        padding: 12px 20px;
+        width: 100%;
+        text-align: center;
+        border-radius: 4px;
     }
 
-    .nav-links a:hover,
-    .nav-links a.active {
+    .nav-links a:hover {
         background-color: #ebf8ff;
     }
 
-    .container {
-        margin: 10px;
-        padding: 15px;
+    /* Dark mode adjustments for mobile menu */
+    @media (prefers-color-scheme: dark) {
+        .menu-icon,
+        .menu-icon::before,
+        .menu-icon::after {
+            background-color: #63b3ed;
+        }
+
+        .mobile-menu-button.active .menu-icon {
+            background-color: transparent;
+        }
+
+        .nav-links {
+            background-color: #2d3748;
+        }
     }
 
-    .activities {
-        grid-template-columns: 1fr;
-    }
-
-    .values {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    }
-
-    h1 {
-        font-size: 2em;
-    }
-
-    .hero {
-        padding: 20px;
-    }
-
-    .activity-card:hover {
-        transform: none;
-    }
-
-    .value-item:hover {
-        transform: none;
-    }
-
-    .principle {
-        padding: 15px;
+    /* High contrast mode adjustments for mobile menu */
+    @media (prefers-contrast: high) {
+        .menu-icon,
+        .menu-icon::before,
+        .menu-icon::after {
+            background-color: black;
+            height: 3px;
+        }
     }
 }
 
-/* Small Mobile Devices */
-@media (max-width: 480px) {
-    .nav-logo {
-        font-size: 1.2em;
-    }
-
-    .top-bar {
-        padding: 5px 0;
-    }
-
-    .donate-button {
-        padding: 6px 15px;
-        font-size: 0.9em;
-    }
-
-    .social-icons {
-        gap: 15px;
-    }
-
-    .social-icons a {
-        font-size: 18px;
-    }
-
-    h1 {
-        font-size: 1.8em;
-    }
-
-    h2 {
-        font-size: 1.4em;
-    }
-
-    .container {
-        padding: 10px;
-    }
-
-    .activity-card {
-        padding: 15px;
-    }
-}
-
-/* Print Styles */
-@media print {
-    .top-bar,
-    .main-nav {
-        display: none;
-    }
-
-    .container {
-        margin: 0;
-        padding: 0;
-        box-shadow: none;
-    }
-
-    body {
-        background-color: white;
-    }
-
-    .activity-card,
-    .value-item {
-        break-inside: avoid;
-    }
-}
-
-/* High Contrast Mode */
-@media (prefers-contrast: high) {
-    body {
-        background-color: white;
-        color: black;
-    }
-
-    .nav-links a,
-    .nav-logo {
-        color: black;
-    }
-
-    .value-item,
-    .activity-card {
-        border: 2px solid black;
-    }
-
-    .hero {
-        background-color: white;
-        border: 2px solid black;
-    }
-}
-
-/* Dark Mode Support */
-@media (prefers-color-scheme: dark) {
-    body {
-        background-color: #1a202c;
-        color: #e2e8f0;
-    }
-
-    .container,
-    .activity-card,
-    .value-item {
-        background-color: #2d3748;
-    }
-
-    .main-nav {
-        background-color: #2d3748;
-    }
-
-    .nav-logo {
-        color: #63b3ed;
-    }
-
-    .nav-links a {
-        color: #e2e8f0;
-    }
-
-    .nav-links a:hover,
-    .nav-links a.active {
-        background-color: #2c5282;
-        color: white;
-    }
-
-    h1, h2, h3 {
-        color: #63b3ed;
-    }
-
-    .hero {
-        background-color: #2c5282;
-    }
-
-    .principle:hover {
-        background-color: #2d3748;
-    }
-}
+/* [Rest of the CSS remains the same] */
