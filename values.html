@@ -26,6 +26,9 @@
     <nav class="main-nav">
         <div class="nav-content">
             <a href="index.html" class="nav-logo">Ìgbà-Dún</a>
+            <button class="mobile-menu-button" aria-label="Toggle menu">
+                <span class="menu-icon"></span>
+            </button>
             <div class="nav-links">
                 <a href="index.html">Home</a>
                 <a href="values.html" class="active">Values</a>
@@ -100,7 +103,36 @@
                 <li>We take responsibility for our actions and hold ourselves accountable.</li>
                 <li>We support each other through challenges, recognizing the complex interplay of personal, interpersonal, and societal issues in cultural exploration.</li>
             </ul>
+
+            <h2>Supporting Our Community</h2>
+            <div class="principle">
+                <h3>Commitment to Growth</h3>
+                <p>We are dedicated to fostering an environment where every member can grow in their understanding and appreciation of Yoruba culture, while maintaining their unique identity and perspective.</p>
+            </div>
+
+            <div class="principle">
+                <h3>Building Connections</h3>
+                <p>Through our values and principles, we create meaningful connections that strengthen our community and enrich Scotland's cultural landscape.</p>
+            </div>
         </section>
     </div>
+
+    <script>
+        // Mobile menu functionality
+        document.querySelector('.mobile-menu-button').addEventListener('click', function() {
+            this.classList.toggle('active');
+            document.querySelector('.nav-links').classList.toggle('show');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const mobileButton = document.querySelector('.mobile-menu-button');
+            const navLinks = document.querySelector('.nav-links');
+            if (event.target !== mobileButton && !mobileButton.contains(event.target) && !navLinks.contains(event.target)) {
+                mobileButton.classList.remove('active');
+                navLinks.classList.remove('show');
+            }
+        });
+    </script>
 </body>
 </html>
