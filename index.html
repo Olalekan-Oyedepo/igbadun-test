@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to Ìgbà-Dún - Celebrating Yoruba Culture in Scotland</title>
+    <title>Ìgbà-Dún - Celebrating Yoruba Culture in Scotland</title>
     <meta name="description" content="Ìgbà-Dún celebrates and shares Yoruba culture in Scotland through community events, language classes, and cultural exchange.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Top Bar -->
@@ -40,23 +40,167 @@
         </div>
     </div>
 
-    <!-- Rest of the HTML remains the same -->
-    <nav class="main-nav" role="navigation" aria-label="Main navigation">
-        <div class="nav-content">
-            <a href="index.html" class="nav-logo" aria-label="Ìgbà-Dún Home">
-                Ìgbà-Dún
-            </a>
-            <button class="mobile-menu-button" aria-label="Toggle menu" aria-expanded="false">
-                <span class="menu-icon"></span>
-            </button>
-            <div class="nav-links">
-                <a href="values.html">Values</a>
-                <a href="activities.html">Activities</a>
-                <a href="events.html">Events</a>
+    <!-- Hero Section -->
+    <header class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">Ìgbà-Dún <br><span>Where Culture Connects</span></h1>
+            <p class="hero-subtitle">Celebrating Yoruba Heritage in the Heart of Scotland</p>
+            <div class="hero-cta">
+                <a href="#featured-events" class="cta-button primary">Explore Events</a>
+                <a href="values.html" class="cta-button secondary">Our Mission</a>
             </div>
         </div>
-    </nav>
+        <div class="hero-pattern"></div>
+    </header>
 
-    <!-- Remaining HTML content stays the same -->
+    <!-- Main Content -->
+    <main id="main-content" role="main">
+        <!-- Core Values Section -->
+        <section class="core-values-section">
+            <div class="section-header">
+                <h2 class="section-title">Our Core Values</h2>
+                <p class="section-description">Bridging cultures, preserving heritage, empowering community</p>
+            </div>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Cultural Preservation</h3>
+                    <p>Protecting and sharing the rich tapestry of Yoruba traditions</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Community Connection</h3>
+                    <p>Creating meaningful bonds across cultural boundaries</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3>Education & Learning</h3>
+                    <p>Providing accessible pathways to Yoruba language and culture</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Events Section -->
+        <section id="featured-events" class="featured-events-section">
+            <div class="section-header">
+                <h2 class="section-title">Upcoming Events</h2>
+                <p class="section-description">Immerse yourself in Yoruba culture</p>
+            </div>
+            <div class="events-grid">
+                <div class="event-card">
+                    <div class="event-date">Feb 15</div>
+                    <div class="event-content">
+                        <h3>Yoruba Language Workshop</h3>
+                        <p>Learn authentic Yoruba phrases and expressions</p>
+                        <a href="events.html" class="event-link">Register Now</a>
+                    </div>
+                </div>
+                <div class="event-card">
+                    <div class="event-date">Mar 1</div>
+                    <div class="event-content">
+                        <h3>Cultural Dance Festival</h3>
+                        <p>Experience traditional Yoruba dance and music</p>
+                        <a href="events.html" class="event-link">Get Tickets</a>
+                    </div>
+                </div>
+                <div class="event-card">
+                    <div class="event-date">Apr 12</div>
+                    <div class="event-content">
+                        <h3>Yoruba Art Exhibition</h3>
+                        <p>Explore contemporary and traditional Yoruba art</p>
+                        <a href="events.html" class="event-link">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Activities Overview -->
+        <section class="activities-overview">
+            <div class="section-header">
+                <h2 class="section-title">Our Activities</h2>
+                <p class="section-description">Engaging experiences that celebrate Yoruba heritage</p>
+            </div>
+            <div class="activities-grid">
+                <div class="activity-card">
+                    <div class="activity-icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h3>Music & Dance</h3>
+                    <p>Traditional rhythms and contemporary performances</p>
+                    <a href="activities.html" class="activity-link">Learn More</a>
+                </div>
+                <div class="activity-card">
+                    <div class="activity-icon">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <h3>Language Classes</h3>
+                    <p>Learn Yoruba from native speakers and experts</p>
+                    <a href="activities.html" class="activity-link">Explore Classes</a>
+                </div>
+                <div class="activity-card">
+                    <div class="activity-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3>Community Support</h3>
+                    <p>Building connections across generations</p>
+                    <a href="activities.html" class="activity-link">Join Community</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h2>Ìgbà-Dún</h2>
+                <p>Celebrating Yoruba Culture in Scotland</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="values.html">Our Values</a>
+                    <a href="activities.html">Activities</a>
+                    <a href="events.html">Events</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <a href="#">Contact Us</a>
+                    <a href="#">Newsletter</a>
+                    <a href="#">Volunteer</a>
+                </div>
+            </div>
+            <div class="footer-social">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Ìgbà-Dún. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu functionality (if needed)
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuToggle = document.querySelector('.mobile-menu-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+
+            if (menuToggle && navMenu) {
+                menuToggle.addEventListener('click', () => {
+                    navMenu.classList.toggle('active');
+                    menuToggle.setAttribute('aria-expanded', navMenu.classList.contains('active'));
+                });
+            }
+        });
+    </script>
 </body>
 </html>
