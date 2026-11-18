@@ -744,6 +744,11 @@ textarea:focus-visible {
     margin: 0 auto 1rem;
 }
 
+.cta-panel p a {
+    color: var(--secondary-color);
+    font-weight: 600;
+}
+
 .cta-panel .cta-button {
     margin-top: 1rem;
 }
@@ -954,6 +959,13 @@ textarea:focus-visible {
 
 .footer-section a:hover {
     color: var(--secondary-color);
+}
+
+.footer-section .coming-soon {
+    display: block;
+    color: rgba(255, 255, 255, 0.5);
+    font-style: italic;
+    margin-bottom: 0.5rem;
 }
 
 .footer-social {
