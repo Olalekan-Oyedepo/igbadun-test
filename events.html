@@ -7,76 +7,219 @@
     <meta name="description" content="Annual events and special programs at Ìgbà-Dún">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Top Bar -->
-    <div class="top-bar" role="banner">
-    <div class="container">
-        <div class="nav-links">
-            <a href="values.html" class="nav-link">Values</a>
-            <a href="activities.html" class="nav-link">Activities</a>
-            <a href="events.html" class="nav-link">Events</a>
-            <a href="resources.html" class="nav-link">Resources</a>
-        </div>
-        <div class="nav-right">
-            <div class="social-icons">
-                <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                <a href="https://www.instagram.com/igbadun_uk" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                <a href="https://www.youtube.com/@Ìgbà-Dún" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
-                    <i class="fab fa-youtube"></i>
-                </a>
-                <a href="http://www.tiktok.com/@igba_dun" aria-label="TikTok" target="_blank" rel="noopener noreferrer">
-                    <i class="fab fa-tiktok"></i>
-                </a>
+    <header class="top-bar">
+        <div class="container">
+            <a href="index.html" class="brand">Ìgbà-Dún</a>
+            <nav class="nav-links" id="site-nav" aria-label="Main">
+                <a href="values.html" class="nav-link">Values</a>
+                <a href="activities.html" class="nav-link">Activities</a>
+                <a href="events.html" class="nav-link" aria-current="page">Events</a>
+                <a href="resources.html" class="nav-link">Resources</a>
+            </nav>
+            <div class="nav-right">
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook" aria-hidden="true"></i></a>
+                    <a href="https://www.instagram.com/igbadun_uk" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                    <a href="https://www.youtube.com/@Ìgbà-Dún" aria-label="YouTube" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+                    <a href="https://www.tiktok.com/@igba_dun" aria-label="TikTok" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok" aria-hidden="true"></i></a>
+                </div>
+                <a href="#" class="donate-button">Donate</a>
+                <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+                    <i class="fas fa-bars" aria-hidden="true"></i>
+                    <i class="fas fa-times" aria-hidden="true"></i>
+                </button>
             </div>
-            <a href="#" class="donate-button">Donate</a>
         </div>
-    </div>
-</div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section page-hero">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <a href="index.html" class="logo-link">Ìgbà-Dún</a>
+                <span>Annual Events</span>
+            </h1>
+            <p class="hero-subtitle">Festivals, outreach and heritage projects celebrating Yorùbá culture across Scotland</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Annual Events Overview -->
+        <section class="content-section">
+            <div class="container">
+                <h2 class="section-title">Our Annual Programme</h2>
+                <div class="activities-grid">
+                    <div class="activity-card">
+                        <div class="activity-icon">
+                            <i class="fas fa-music" aria-hidden="true"></i>
+                        </div>
+                        <h3>Cultural Festival</h3>
+                        <ul class="activity-features">
+                            <li>Performances and exhibitions</li>
+                            <li>Traditional food festival</li>
+                            <li>Community awards ceremony</li>
+                            <li>Family activities</li>
+                        </ul>
+                    </div>
+
+                    <div class="activity-card">
+                        <div class="activity-icon">
+                            <i class="fas fa-school" aria-hidden="true"></i>
+                        </div>
+                        <h3>Educational Outreach</h3>
+                        <ul class="activity-features">
+                            <li>School visit programme</li>
+                            <li>University partnerships</li>
+                            <li>Cultural awareness training</li>
+                            <li>Public lectures</li>
+                        </ul>
+                    </div>
+
+                    <div class="activity-card">
+                        <div class="activity-icon">
+                            <i class="fas fa-camera-retro" aria-hidden="true"></i>
+                        </div>
+                        <h3>Heritage Documentation</h3>
+                        <ul class="activity-features">
+                            <li>Oral history project</li>
+                            <li>Digital cultural archive</li>
+                            <li>Event documentation</li>
+                            <li>Community newsletters</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Programme Details -->
+        <section class="content-section alt-background">
+            <div class="container">
+                <h2 class="section-title">Programme Details</h2>
+                <div class="event-details-list">
+                    <article class="event-detail">
+                        <h3>Cultural Festival</h3>
+                        <p>Our annual cultural festival is a celebration of Yorùbá heritage, bringing together community members and the wider Scottish public for a vibrant showcase of culture, art, and tradition.</p>
+                        <h4>Festival Highlights</h4>
+                        <ul class="activity-features">
+                            <li>Traditional dance and music performances</li>
+                            <li>Art exhibitions featuring local and international artists</li>
+                            <li>Yorùbá cuisine tastings and cooking demonstrations</li>
+                            <li>Interactive cultural workshops</li>
+                            <li>Community recognition awards</li>
+                        </ul>
+                    </article>
+
+                    <article class="event-detail">
+                        <h3>Educational Outreach</h3>
+                        <p>Our educational outreach programmes bring Yorùbá culture into Scottish schools and institutions, fostering cross-cultural understanding and appreciation.</p>
+                        <h4>Programme Components</h4>
+                        <ul class="activity-features">
+                            <li>Interactive cultural presentations in schools</li>
+                            <li>Academic collaborations with universities</li>
+                            <li>Professional development for educators</li>
+                            <li>Public lectures and seminars</li>
+                            <li>Cultural resource development</li>
+                        </ul>
+                    </article>
+
+                    <article class="event-detail">
+                        <h3>Heritage Documentation</h3>
+                        <p>We are committed to preserving and documenting Yorùbá cultural heritage in Scotland for future generations.</p>
+                        <h4>Documentation Projects</h4>
+                        <ul class="activity-features">
+                            <li>Recording oral histories from community elders</li>
+                            <li>Creating digital archives of cultural practices</li>
+                            <li>Documenting community events and celebrations</li>
+                            <li>Publishing community stories and experiences</li>
+                            <li>Building an accessible cultural database</li>
+                        </ul>
+                    </article>
+
+                    <article class="event-detail">
+                        <h3>Cultural Exchange Programme</h3>
+                        <p>Our exchange programmes create meaningful connections between Scottish and Yorùbá communities.</p>
+                        <h4>Exchange Activities</h4>
+                        <ul class="activity-features">
+                            <li>Organised visits to Yorùbá-speaking regions</li>
+                            <li>Virtual connections with cultural organisations</li>
+                            <li>Collaborative projects with other cultural groups</li>
+                            <li>Youth exchange opportunities</li>
+                            <li>Cross-cultural artistic collaborations</li>
+                        </ul>
+                    </article>
+
+                    <article class="event-detail">
+                        <h3>Professional Development</h3>
+                        <p>We offer opportunities for community members to develop professional skills while preserving cultural practices.</p>
+                        <h4>Development Opportunities</h4>
+                        <ul class="activity-features">
+                            <li>Workshop series on cultural entrepreneurship</li>
+                            <li>Traditional crafts skills development</li>
+                            <li>Leadership training programmes</li>
+                            <li>Cultural consultation services training</li>
+                            <li>Professional networking events</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="content-section">
+            <div class="container">
+                <div class="cta-panel">
+                    <h2>Get Involved</h2>
+                    <p>Join us for our upcoming events and be part of our vibrant community. Whether you're interested in attending our festival, participating in our documentation projects, or contributing to our educational programmes, there's a place for you.</p>
+                    <p>Contact us for event schedules and participation details.</p>
+                    <a href="membership.html" class="cta-button primary">Become a Member</a>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <!-- Footer -->
-<footer class="site-footer">
-    <div class="footer-content">
-        <div class="footer-logo">
-            <h2>Ìgbà-Dún</h2>
-            <p>Celebrating Yoruba Culture in Scotland</p>
-        </div>
-        <div class="footer-links">
-            <div class="footer-section">
-                <h4>Quick Links</h4>
-                <a href="values.html">Our Values</a>
-                <a href="activities.html">Activities</a>
-                <a href="events.html">Events</a>
-                <a href="resources.html">Resources</a>
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h2>Ìgbà-Dún</h2>
+                <p>Celebrating Yoruba Culture in Scotland</p>
             </div>
-            <div class="footer-section">
-                <h4>Connect</h4>
-                <a href="#">Contact Us</a>
-                <a href="#">Newsletter</a>
-                <a href="#">Volunteer</a>
+            <div class="footer-links">
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="values.html">Our Values</a>
+                    <a href="activities.html">Activities</a>
+                    <a href="events.html">Events</a>
+                    <a href="resources.html">Resources</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <a href="#">Contact Us</a>
+                    <a href="#">Newsletter</a>
+                    <a href="#">Volunteer</a>
+                </div>
+            </div>
+            <div class="footer-social">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook" aria-hidden="true"></i></a>
+                <a href="https://www.instagram.com/igbadun_uk" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                <a href="https://www.youtube.com/@Ìgbà-Dún" aria-label="YouTube" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+                <a href="https://www.tiktok.com/@igba_dun" aria-label="TikTok" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok" aria-hidden="true"></i></a>
             </div>
         </div>
-        <div class="footer-social">
-            <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-            <a href="https://www.instagram.com/igbadun_uk" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-            <a href="https://www.youtube.com/@Ìgbà-Dún" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
-                <i class="fab fa-youtube"></i>
-            </a>
-            <a href="http://www.tiktok.com/@igba_dun" aria-label="TikTok" target="_blank" rel="noopener noreferrer">
-                <i class="fab fa-tiktok"></i>
-            </a>
+        <div class="footer-bottom">
+            <p>&copy; <span data-year>2026</span> Ìgbà-Dún. All rights reserved.</p>
         </div>
-    </div>
-    <div class="footer-bottom">
-        <p>&copy; 2024 Ìgbà-Dún. All rights reserved.</p>
-    </div>
-</footer>
-    <!-- Navigation and rest of the content remains the same -->
+    </footer>
+
+    <script src="script.js" defer></script>
 </body>
 </html>
