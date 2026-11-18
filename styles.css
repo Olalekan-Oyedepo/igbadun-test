@@ -1,18 +1,48 @@
-/* Global Reset and Variables */
+/* ==========================================================================
+   Ìgbà-Dún — shared stylesheet
+   Blue and gold organisation theme. Every page uses this file only;
+   pages should not carry their own <style> blocks.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Theme variables
+   -------------------------------------------------------------------------- */
 :root {
+    /* Brand: blue and gold */
     --primary-color: #2C5282;
+    --primary-dark: #1A365D;
     --secondary-color: #D69E2E;
-    --accent-color: #805AD5;
+    --secondary-hover: #E5AE43;
+
+    /* Neutrals */
     --text-dark: #1A202C;
     --text-light: #4A5568;
+    --border-color: #E2E8F0;
+    --input-border: #CBD5E0;
     --background-light: #F7FAFC;
-    --gradient-primary: linear-gradient(135deg, #2C5282 0%, #1A365D 100%);
+    --white: #FFFFFF;
+
+    /* Form feedback (used only for errors and confirmations) */
+    --error-color: #C53030;
+    --success-color: #276749;
+    --success-background: #F0FFF4;
+
+    --gradient-primary: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+
+    --font-heading: 'Playfair Display', Georgia, serif;
+    --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
     --border-radius: 12px;
+    --border-radius-small: 6px;
     --shadow-subtle: 0 4px 6px rgba(0, 0, 0, 0.1);
     --shadow-elevated: 0 10px 20px rgba(0, 0, 0, 0.15);
+
+    --topbar-height: 72px;
 }
 
-/* Base Styles */
+/* --------------------------------------------------------------------------
+   2. Base
+   -------------------------------------------------------------------------- */
 * {
     margin: 0;
     padding: 0;
@@ -24,10 +54,33 @@ html {
 }
 
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-body);
     line-height: 1.6;
     color: var(--text-dark);
     background-color: var(--background-light);
+}
+
+h1, h2, h3, h4 {
+    line-height: 1.25;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* Anchored sections stop below the fixed top bar */
+[id] {
+    scroll-margin-top: calc(var(--topbar-height) + 1rem);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid var(--secondary-color);
+    outline-offset: 2px;
 }
 
 .container {
@@ -36,10 +89,39 @@ body {
     padding: 0 1.5rem;
 }
 
-/* Top Bar */
+/* --------------------------------------------------------------------------
+   3. Section headings
+   -------------------------------------------------------------------------- */
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    padding: 0 1.5rem;
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    line-height: 1.2;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-header .section-title {
+    margin-bottom: 1rem;
+}
+
+.section-description {
+    color: var(--text-light);
+    font-size: 1.1rem;
+}
+
+/* --------------------------------------------------------------------------
+   4. Top bar and navigation
+   -------------------------------------------------------------------------- */
 .top-bar {
     background: var(--gradient-primary);
-    padding: 1rem 0;
+    height: var(--topbar-height);
     position: fixed;
     width: 100%;
     top: 0;
@@ -48,9 +130,23 @@ body {
 }
 
 .top-bar .container {
+    height: 100%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    gap: 2.5rem;
+}
+
+.brand {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--white);
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.brand:hover {
+    color: var(--secondary-color);
 }
 
 .nav-links {
@@ -59,10 +155,9 @@ body {
 }
 
 .nav-link {
-    color: white;
+    color: var(--white);
     text-decoration: none;
     font-weight: 600;
-    transition: color 0.3s ease;
     position: relative;
 }
 
@@ -77,7 +172,8 @@ body {
     transition: width 0.3s ease;
 }
 
-.nav-link:hover::after {
+.nav-link:hover::after,
+.nav-link[aria-current="page"]::after {
     width: 100%;
 }
 
@@ -85,6 +181,7 @@ body {
     display: flex;
     align-items: center;
     gap: 2rem;
+    margin-left: auto;
 }
 
 .social-icons {
@@ -93,10 +190,10 @@ body {
 }
 
 .social-icons a {
-    color: white;
+    color: var(--white);
     font-size: 1.2rem;
-    opacity: 0.8;
-    transition: all 0.3s ease;
+    opacity: 0.85;
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .social-icons a:hover {
@@ -104,44 +201,135 @@ body {
     transform: translateY(-2px);
 }
 
-.donate-button {
-    background-color: var(--secondary-color);
-    color: white;
-    padding: 0.75rem 1.5rem;
+.menu-toggle {
+    display: none;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    border-radius: var(--border-radius-small);
+    color: var(--white);
+    font-size: 1.25rem;
+    width: 44px;
+    height: 44px;
+    cursor: pointer;
+}
+
+.menu-toggle .fa-times,
+.menu-open .menu-toggle .fa-bars {
+    display: none;
+}
+
+.menu-open .menu-toggle .fa-times {
+    display: inline-block;
+}
+
+/* --------------------------------------------------------------------------
+   5. Buttons
+   Gold buttons use navy text so the label is readable (WCAG AA contrast).
+   -------------------------------------------------------------------------- */
+.donate-button,
+.cta-button,
+.involvement-button,
+.resource-link,
+.submit-button {
+    display: inline-block;
     border-radius: var(--border-radius);
     text-decoration: none;
+    font-family: inherit;
     font-weight: 600;
-    transition: all 0.3s ease;
+    line-height: 1.4;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.donate-button {
+    background-color: var(--secondary-color);
+    color: var(--primary-dark);
+    padding: 0.7rem 1.5rem;
 }
 
 .donate-button:hover {
+    background-color: var(--secondary-hover);
     transform: translateY(-2px);
-    background-color: #C68A1E;
     box-shadow: var(--shadow-subtle);
 }
 
-/* Hero Section */
+.cta-button {
+    padding: 1rem 2rem;
+}
+
+.cta-button.primary {
+    background-color: var(--secondary-color);
+    color: var(--primary-dark);
+}
+
+.cta-button.primary:hover {
+    background-color: var(--secondary-hover);
+    transform: translateY(-2px);
+}
+
+.cta-button.secondary {
+    border: 2px solid var(--white);
+    color: var(--white);
+}
+
+.cta-button.secondary:hover {
+    background-color: var(--white);
+    color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+.involvement-button,
+.resource-link {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 0.75rem 1.5rem;
+}
+
+.involvement-button:hover,
+.resource-link:hover {
+    background-color: var(--secondary-color);
+    color: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+.submit-button {
+    background-color: var(--secondary-color);
+    color: var(--primary-dark);
+    border: none;
+    padding: 1rem 2.5rem;
+    font-size: 1rem;
+}
+
+.submit-button:hover {
+    background-color: var(--secondary-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-subtle);
+}
+
+/* --------------------------------------------------------------------------
+   6. Hero sections
+   .hero-section on its own is the home page hero; add .page-hero for the
+   shorter banner used on every other page.
+   -------------------------------------------------------------------------- */
 .hero-section {
-    padding: 8rem 0 6rem;
+    padding: calc(var(--topbar-height) + 5rem) 0 6rem;
     background: var(--gradient-primary);
-    color: white;
-    position: relative;
-    overflow: hidden;
+    color: var(--white);
+    text-align: center;
 }
 
 .hero-content {
     max-width: 800px;
     margin: 0 auto;
-    text-align: center;
     padding: 0 1.5rem;
 }
 
 .hero-title {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-heading);
     font-size: 3.5rem;
     font-weight: 900;
-    margin-bottom: 1.5rem;
     line-height: 1.2;
+    margin-bottom: 1.5rem;
 }
 
 .hero-title span {
@@ -153,7 +341,7 @@ body {
 
 .hero-subtitle {
     font-size: 1.25rem;
-    margin-bottom: 2rem;
+    margin: 0 auto 2rem;
     color: rgba(255, 255, 255, 0.9);
 }
 
@@ -163,110 +351,155 @@ body {
     justify-content: center;
 }
 
-.cta-button {
-    padding: 1rem 2rem;
-    border-radius: var(--border-radius);
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s ease;
+.page-hero {
+    padding: calc(var(--topbar-height) + 3.5rem) 0 3.5rem;
+    margin-bottom: 3rem;
 }
 
-.cta-button.primary {
-    background-color: var(--secondary-color);
-    color: white;
-}
-
-.cta-button.primary:hover {
-    background-color: #C68A1E;
-    transform: translateY(-2px);
-}
-
-.cta-button.secondary {
-    border: 2px solid white;
-    color: white;
-}
-
-.cta-button.secondary:hover {
-    background-color: white;
-    color: var(--primary-color);
-    transform: translateY(-2px);
-}
-
-/* Featured Events Section */
-.featured-events-section {
-    padding: 6rem 0;
-    background-color: white;
-}
-
-.section-header {
-    text-align: center;
-    margin-bottom: 4rem;
-}
-
-.section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.5rem;
-    color: var(--primary-color);
+.page-hero .hero-title {
+    font-size: 3rem;
     margin-bottom: 1rem;
 }
 
-.section-description {
-    color: var(--text-light);
-    font-size: 1.1rem;
+.page-hero .hero-title span {
+    font-size: 2rem;
 }
 
-.events-grid {
+.page-hero .hero-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 0;
+}
+
+.logo-link {
+    color: var(--white);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.logo-link:hover {
+    color: var(--secondary-hover);
+}
+
+/* --------------------------------------------------------------------------
+   7. Shared card styles
+   -------------------------------------------------------------------------- */
+.event-card,
+.value-card,
+.involvement-card,
+.activity-card,
+.special-event-card,
+.beneficiary-card,
+.resource-card,
+.event-detail {
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-subtle);
+}
+
+.event-card,
+.value-card,
+.involvement-card,
+.activity-card,
+.special-event-card,
+.resource-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.event-card:hover,
+.value-card:hover,
+.involvement-card:hover,
+.activity-card:hover,
+.special-event-card:hover,
+.resource-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-elevated);
+}
+
+/* Picture area at the top of event cards (blue panel with a gold icon).
+   Swap the <div class="card-media"> for an <img class="card-media"> once
+   real photos are added to the images/ folder. */
+.card-media {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    max-height: 220px;
+    background: var(--gradient-primary);
+    color: var(--secondary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3.5rem;
+    object-fit: cover;
+}
+
+.card-grid,
+.events-grid,
+.values-grid,
+.involvement-grid,
+.activities-grid,
+.special-events-grid,
+.beneficiaries-grid,
+.resources-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
+}
+
+.events-grid,
+.values-grid,
+.involvement-grid {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 1.5rem;
 }
 
-.event-card {
-    background-color: white;
-    border-radius: var(--border-radius);
-    overflow: hidden;
-    box-shadow: var(--shadow-subtle);
-    transition: transform 0.3s ease;
+/* Bulleted lists inside cards */
+.activity-features,
+.safer-space-list {
+    list-style: none;
 }
 
-.event-card:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--shadow-elevated);
-}
-
-.event-image-wrapper {
+.activity-features li,
+.safer-space-list li {
+    margin-bottom: 0.75rem;
+    padding-left: 1.5rem;
     position: relative;
-    padding-top: 66.67%; /* 3:2 aspect ratio */
-    overflow: hidden;
+    color: var(--text-light);
 }
 
-.event-image {
+.activity-features li::before,
+.safer-space-list li::before {
+    content: '';
     position: absolute;
-    top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    top: 0.6em;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--secondary-color);
 }
 
-.event-date {
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
-    background-color: var(--accent-color);
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: var(--border-radius);
-    font-weight: 600;
-    z-index: 1;
+/* --------------------------------------------------------------------------
+   8. Home page
+   -------------------------------------------------------------------------- */
+.featured-events-section,
+.core-values-section,
+.get-involved-section {
+    padding: 6rem 0;
+}
+
+.featured-events-section,
+.get-involved-section {
+    background-color: var(--white);
+}
+
+.event-card {
+    overflow: hidden;
 }
 
 .event-card h3 {
     padding: 1.5rem 1.5rem 0.5rem;
     font-size: 1.25rem;
+    color: var(--primary-color);
 }
 
 .event-card p {
@@ -274,115 +507,409 @@ body {
     color: var(--text-light);
 }
 
-/* Core Values Section */
-.core-values-section {
-    padding: 6rem 0;
-    background-color: var(--background-light);
-}
-
-.values-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
-}
-
-.value-card {
-    background-color: white;
+.value-card,
+.involvement-card {
     padding: 2rem;
-    border-radius: var(--border-radius);
     text-align: center;
-    box-shadow: var(--shadow-subtle);
-    transition: transform 0.3s ease;
-}
-
-.value-card:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--shadow-elevated);
-}
-
-.value-icon {
-    font-size: 2.5rem;
-    color: var(--primary-color);
-    margin-bottom: 1.5rem;
-}
-
-.value-card h3 {
-    margin-bottom: 1rem;
-    font-size: 1.25rem;
-}
-
-.value-card p {
-    color: var(--text-light);
-}
-
-/* Get Involved Section */
-.get-involved-section {
-    padding: 6rem 0;
-    background-color: white;
-}
-
-.involvement-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
 }
 
 .involvement-card {
     background-color: var(--background-light);
-    padding: 2rem;
-    border-radius: var(--border-radius);
-    text-align: center;
-    box-shadow: var(--shadow-subtle);
-    transition: transform 0.3s ease;
 }
 
-.involvement-card:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--shadow-elevated);
-}
-
-.involvement-icon {
+.value-icon,
+.involvement-icon,
+.activity-icon,
+.resource-icon {
     font-size: 2.5rem;
     color: var(--primary-color);
     margin-bottom: 1.5rem;
 }
 
+.value-card h3,
 .involvement-card h3 {
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+    color: var(--primary-color);
+}
+
+.value-card p,
+.involvement-card p {
+    color: var(--text-light);
+}
+
+.involvement-card p {
+    margin-bottom: 1.5rem;
+}
+
+/* --------------------------------------------------------------------------
+   9. Values page
+   -------------------------------------------------------------------------- */
+.values-section {
+    max-width: 1200px;
+    margin: 0 auto 4rem;
+    padding: 0 1.5rem;
+}
+
+.core-values-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.core-values-grid .value-card {
+    text-align: left;
+    border-left: 4px solid var(--primary-color);
+    display: flex;
+    flex-direction: column;
+}
+
+.core-values-grid .value-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    max-width: calc(50% - 1rem);
+    width: 100%;
+    margin: 0 auto;
+}
+
+.core-values-grid .value-card h2 {
+    font-family: var(--font-body);
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.core-values-grid .value-card p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+.principles-section {
+    margin-bottom: 4rem;
+}
+
+.principles-section h2,
+.safer-space-section h2 {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+}
+
+.principles-section h2 {
+    text-align: center;
+}
+
+.principles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.principle-card {
+    background: var(--white);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    border-top: 3px solid var(--secondary-color);
+}
+
+.principle-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.75rem;
+    font-size: 1.2rem;
+}
+
+.principle-card p {
+    color: var(--text-light);
+}
+
+.safer-space-section {
+    background: var(--white);
+    padding: 2.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-subtle);
+}
+
+/* --------------------------------------------------------------------------
+   10. Activities and events pages
+   -------------------------------------------------------------------------- */
+.activities-section,
+.special-events-section,
+.beneficiaries-section,
+.content-section {
+    padding: 4rem 0;
+}
+
+.alt-background {
+    background-color: var(--white);
+}
+
+.activity-card {
+    padding: 2rem;
+}
+
+.activity-icon {
+    text-align: center;
+}
+
+.activity-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+.special-event-card {
+    overflow: hidden;
+}
+
+.event-content {
+    padding: 1.5rem;
+}
+
+.event-content h3,
+.beneficiary-card h3 {
+    color: var(--primary-color);
     margin-bottom: 1rem;
     font-size: 1.25rem;
 }
 
-.involvement-card p {
+.event-content p,
+.beneficiary-card p {
     color: var(--text-light);
+}
+
+.beneficiary-card {
+    padding: 2rem;
+    text-align: center;
+}
+
+/* Events page: detailed programme list */
+.event-details-list {
+    display: grid;
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.event-detail {
+    padding: 2rem 2.5rem;
+    border-left: 4px solid var(--primary-color);
+    background-color: var(--background-light);
+    box-shadow: none;
+}
+
+.event-detail h3 {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    color: var(--primary-color);
+    margin-bottom: 0.75rem;
+}
+
+.event-detail > p {
+    color: var(--text-light);
+    margin-bottom: 1.25rem;
+}
+
+.event-detail h4 {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-dark);
+    margin-bottom: 0.75rem;
+}
+
+.cta-panel {
+    background: var(--gradient-primary);
+    color: var(--white);
+    border-radius: var(--border-radius);
+    padding: 3rem 2rem;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.cta-panel h2 {
+    font-family: var(--font-heading);
+    font-size: 2.25rem;
+    margin-bottom: 1rem;
+}
+
+.cta-panel p {
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 700px;
+    margin: 0 auto 1rem;
+}
+
+.cta-panel .cta-button {
+    margin-top: 1rem;
+}
+
+/* --------------------------------------------------------------------------
+   11. Resources page
+   -------------------------------------------------------------------------- */
+.resources-section {
+    padding: 4rem 0;
+}
+
+.cultural-section,
+.community-section {
+    background-color: var(--white);
+}
+
+.resource-card {
+    padding: 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.resource-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+}
+
+.resource-card p {
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+/* --------------------------------------------------------------------------
+   12. Membership form
+   -------------------------------------------------------------------------- */
+.form-container {
+    max-width: 800px;
+    margin: 0 auto 4rem;
+    padding: 2.5rem;
+    background: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-subtle);
+}
+
+.form-section {
+    margin-bottom: 2.5rem;
+}
+
+.form-section h2 {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    color: var(--primary-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--secondary-color);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+    width: 100%;
+    padding: 0.7rem 0.9rem;
+    border: 1px solid var(--input-border);
+    border-radius: var(--border-radius-small);
+    font-family: inherit;
+    font-size: 1rem;
+    color: var(--text-dark);
+    background-color: var(--white);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(44, 82, 130, 0.2);
+    outline: none;
+}
+
+.form-textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.checkbox-group {
+    margin-top: 0.5rem;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 0.6rem;
+    cursor: pointer;
+}
+
+.checkbox-label input {
+    margin-top: 0.3rem;
+    flex-shrink: 0;
+    width: 1.1rem;
+    height: 1.1rem;
+    accent-color: var(--primary-color);
+}
+
+.form-container a {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.form-actions {
+    text-align: center;
+}
+
+.required-field::after {
+    content: '*';
+    color: var(--error-color);
+    margin-left: 4px;
+}
+
+.error-message {
+    color: var(--error-color);
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+.form-input.error,
+.form-textarea.error,
+.form-select.error {
+    border-color: var(--error-color);
+}
+
+.success-message {
+    color: var(--success-color);
+    background-color: var(--success-background);
+    border: 1px solid var(--success-color);
+    padding: 1rem;
+    border-radius: var(--border-radius-small);
     margin-bottom: 1.5rem;
 }
 
-.involvement-button {
-    display: inline-block;
-    background-color: var(--primary-color);
-    color: white;
-    padding: 0.75rem 1.5rem;
-    border-radius: var(--border-radius);
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s ease;
-}
-
-.involvement-button:hover {
-    background-color: var(--secondary-color);
-    transform: translateY(-2px);
-}
-
-/* Footer */
+/* --------------------------------------------------------------------------
+   13. Footer
+   -------------------------------------------------------------------------- */
 .site-footer {
     background-color: var(--text-dark);
-    color: white;
+    color: var(--white);
     padding: 4rem 0 2rem;
 }
 
@@ -396,7 +923,7 @@ body {
 }
 
 .footer-logo h2 {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-heading);
     font-size: 2rem;
     margin-bottom: 1rem;
 }
@@ -426,7 +953,7 @@ body {
 }
 
 .footer-section a:hover {
-    color: white;
+    color: var(--secondary-color);
 }
 
 .footer-social {
@@ -437,14 +964,15 @@ body {
 }
 
 .footer-social a {
-    color: white;
+    color: var(--white);
     font-size: 1.5rem;
     opacity: 0.8;
-    transition: all 0.3s ease;
+    transition: opacity 0.3s ease, color 0.3s ease, transform 0.3s ease;
 }
 
 .footer-social a:hover {
     opacity: 1;
+    color: var(--secondary-color);
     transform: translateY(-2px);
 }
 
@@ -459,27 +987,94 @@ body {
     color: rgba(255, 255, 255, 0.6);
 }
 
-/* Mobile Menu */
-.mobile-menu-toggle {
-    display: none;
+/* --------------------------------------------------------------------------
+   14. Responsive
+   -------------------------------------------------------------------------- */
+
+/* Make room in the top bar: social links stay in the footer */
+@media (max-width: 1100px) {
+    .top-bar .social-icons {
+        display: none;
+    }
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
+/* Phone and tablet menu */
+@media (max-width: 900px) {
+    .menu-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .nav-right {
+        gap: 1rem;
+    }
+
     .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        gap: 0;
+        background: var(--primary-dark);
+        box-shadow: var(--shadow-elevated);
+        padding: 0.5rem 0;
+    }
+
+    .menu-open .nav-links {
+        display: flex;
+    }
+
+    .nav-link {
+        display: block;
+        padding: 0.9rem 1.5rem;
+        border-left: 4px solid transparent;
+    }
+
+    .nav-link::after {
         display: none;
     }
 
-    .mobile-menu-toggle {
-        display: block;
+    .nav-link:hover,
+    .nav-link[aria-current="page"] {
+        background-color: rgba(255, 255, 255, 0.08);
+        border-left-color: var(--secondary-color);
     }
 
-    .hero-title {
+    .core-values-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .core-values-grid .value-card:last-child:nth-child(odd) {
+        max-width: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        padding: calc(var(--topbar-height) + 3rem) 0 4rem;
+    }
+
+    .page-hero {
+        padding: calc(var(--topbar-height) + 2.5rem) 0 2.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .hero-title,
+    .page-hero .hero-title {
         font-size: 2.5rem;
     }
 
-    .hero-title span {
-        font-size: 1.8rem;
+    .hero-title span,
+    .page-hero .hero-title span {
+        font-size: 1.6rem;
+    }
+
+    .hero-subtitle,
+    .page-hero .hero-subtitle {
+        font-size: 1.05rem;
     }
 
     .hero-cta {
@@ -491,10 +1086,49 @@ body {
         text-align: center;
     }
 
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .featured-events-section,
+    .core-values-section,
+    .get-involved-section {
+        padding: 4rem 0;
+    }
+
+    .section-header {
+        margin-bottom: 2.5rem;
+    }
+
+    .card-grid,
     .events-grid,
     .values-grid,
-    .involvement-grid {
+    .involvement-grid,
+    .activities-grid,
+    .special-events-grid,
+    .beneficiaries-grid,
+    .resources-grid,
+    .principles-grid,
+    .form-grid {
         grid-template-columns: 1fr;
+    }
+
+    .activities-section,
+    .special-events-section,
+    .beneficiaries-section,
+    .content-section,
+    .resources-section {
+        padding: 3rem 0;
+    }
+
+    .event-detail {
+        padding: 1.5rem;
+    }
+
+    .form-container {
+        padding: 1.5rem;
+        margin: 0 1rem 3rem;
     }
 
     .footer-content {
@@ -505,28 +1139,62 @@ body {
     .footer-links {
         justify-content: center;
     }
+}
 
-    .footer-social {
-        justify-content: center;
+@media (max-width: 480px) {
+    .brand {
+        font-size: 1.35rem;
+    }
+
+    .donate-button {
+        padding: 0.6rem 1rem;
+    }
+
+    .hero-title,
+    .page-hero .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-title span,
+    .page-hero .hero-title span {
+        font-size: 1.3rem;
+    }
+
+    .safer-space-section,
+    .value-card,
+    .activity-card,
+    .resource-card,
+    .beneficiary-card {
+        padding: 1.5rem;
     }
 }
 
-/* Accessibility */
+/* --------------------------------------------------------------------------
+   15. Accessibility and print
+   -------------------------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
     * {
         animation: none !important;
         transition: none !important;
     }
 }
 
-/* Print Styles */
 @media print {
     .top-bar {
         position: static;
     }
 
+    .hero-section {
+        padding-top: 2rem;
+    }
+
     .donate-button,
     .social-icons,
+    .menu-toggle,
     .hero-cta {
         display: none;
     }
