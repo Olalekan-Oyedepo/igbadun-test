@@ -13,35 +13,33 @@
 </head>
 <body>
     <!-- Top Bar -->
-    <div class="top-bar" role="banner">
-    <div class="container">
-        <div class="nav-links">
-            <a href="values.html" class="nav-link">Values</a>
-            <a href="activities.html" class="nav-link">Activities</a>
-            <a href="events.html" class="nav-link">Events</a>
-            <a href="resources.html" class="nav-link">Resources</a>
-        </div>
-        <div class="nav-right">
-            <div class="social-icons">
-                <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                <a href="https://www.instagram.com/igbadun_uk" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                <a href="https://www.youtube.com/@Ìgbà-Dún" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
-                    <i class="fab fa-youtube"></i>
-                </a>
-                <a href="http://www.tiktok.com/@igba_dun" aria-label="TikTok" target="_blank" rel="noopener noreferrer">
-                    <i class="fab fa-tiktok"></i>
-                </a>
+    <header class="top-bar">
+        <div class="container">
+            <a href="index.html" class="brand">Ìgbà-Dún</a>
+            <nav class="nav-links" id="site-nav" aria-label="Main">
+                <a href="values.html" class="nav-link">Values</a>
+                <a href="activities.html" class="nav-link" aria-current="page">Activities</a>
+                <a href="events.html" class="nav-link">Events</a>
+                <a href="resources.html" class="nav-link">Resources</a>
+            </nav>
+            <div class="nav-right">
+                <div class="social-icons">
+                    <a href="https://tr.ee/8bm4xNWZfX" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook" aria-hidden="true"></i></a>
+                    <a href="https://tr.ee/PLSa9Wnz99" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                    <a href="https://tr.ee/Q1Iue9vkQL" aria-label="YouTube" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+                    <a href="https://tr.ee/6f3mAfX8U2" aria-label="TikTok" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok" aria-hidden="true"></i></a>
+                </div>
+                <a href="https://tr.ee/TXJqTfBXIM" class="donate-button" target="_blank" rel="noopener noreferrer">Donate</a>
+                <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+                    <i class="fas fa-bars" aria-hidden="true"></i>
+                    <i class="fas fa-times" aria-hidden="true"></i>
+                </button>
             </div>
-            <a href="#" class="donate-button">Donate</a>
         </div>
-    </div>
-</div>
+    </header>
 
     <!-- Hero Section -->
-    <section class="hero-section">
+    <section class="hero-section page-hero">
         <div class="hero-content">
             <h1 class="hero-title">
                 <a href="index.html" class="logo-link">Ìgbà-Dún</a>
@@ -61,7 +59,7 @@
                 <div class="activities-grid">
                     <div class="activity-card">
                         <div class="activity-icon">
-                            <i class="fas fa-language"></i>
+                            <i class="fas fa-language" aria-hidden="true"></i>
                         </div>
                         <h3>Language Learning Programme</h3>
                         <ul class="activity-features">
@@ -74,7 +72,7 @@
 
                     <div class="activity-card">
                         <div class="activity-icon">
-                            <i class="fas fa-book-open"></i>
+                            <i class="fas fa-book-open" aria-hidden="true"></i>
                         </div>
                         <h3>Cultural Education Sessions</h3>
                         <ul class="activity-features">
@@ -87,7 +85,7 @@
 
                     <div class="activity-card">
                         <div class="activity-icon">
-                            <i class="fas fa-hands-helping"></i>
+                            <i class="fas fa-hands-helping" aria-hidden="true"></i>
                         </div>
                         <h3>Community Support Initiatives</h3>
                         <ul class="activity-features">
@@ -100,7 +98,7 @@
 
                     <div class="activity-card">
                         <div class="activity-icon">
-                            <i class="fas fa-theater-masks"></i>
+                            <i class="fas fa-theater-masks" aria-hidden="true"></i>
                         </div>
                         <h3>Arts and Performance Projects</h3>
                         <ul class="activity-features">
@@ -121,7 +119,7 @@
                 
                 <div class="special-events-grid">
                     <div class="special-event-card">
-                        <img src="/api/placeholder/400/300" alt="Cultural Festival" class="event-image">
+                        <div class="card-media" aria-hidden="true"><i class="fas fa-music"></i></div>
                         <div class="event-content">
                             <h3>Cultural Festival</h3>
                             <p>Our annual celebration featuring performances, exhibitions, traditional cuisine, and community awards.</p>
@@ -129,7 +127,7 @@
                     </div>
 
                     <div class="special-event-card">
-                        <img src="/api/placeholder/400/300" alt="Educational Outreach" class="event-image">
+                        <div class="card-media" aria-hidden="true"><i class="fas fa-school"></i></div>
                         <div class="event-content">
                             <h3>Educational Outreach</h3>
                             <p>School visits, university partnerships, and cultural awareness training programmes.</p>
@@ -137,7 +135,7 @@
                     </div>
 
                     <div class="special-event-card">
-                        <img src="/api/placeholder/400/300" alt="Heritage Documentation" class="event-image">
+                        <div class="card-media" aria-hidden="true"><i class="fas fa-camera-retro"></i></div>
                         <div class="event-content">
                             <h3>Heritage Documentation</h3>
                             <p>Recording and preserving stories of Yorùbá people in Scotland through various media.</p>
@@ -171,202 +169,39 @@
 
     <!-- Footer -->
     <footer class="site-footer">
-    <div class="footer-content">
-        <div class="footer-logo">
-            <h2>Ìgbà-Dún</h2>
-            <p>Celebrating Yoruba Culture in Scotland</p>
-        </div>
-        <div class="footer-links">
-            <div class="footer-section">
-                <h4>Quick Links</h4>
-                <a href="values.html">Our Values</a>
-                <a href="activities.html">Activities</a>
-                <a href="events.html">Events</a>
-                <a href="resources.html">Resources</a>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h2>Ìgbà-Dún</h2>
+                <p>Celebrating Yoruba Culture in Scotland</p>
             </div>
-            <div class="footer-section">
-                <h4>Connect</h4>
-                <a href="#">Contact Us</a>
-                <a href="#">Newsletter</a>
-                <a href="#">Volunteer</a>
+            <div class="footer-links">
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="values.html">Our Values</a>
+                    <a href="activities.html">Activities</a>
+                    <a href="events.html">Events</a>
+                    <a href="resources.html">Resources</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <a href="mailto:olalekan.oyedepo@igbadun.co.uk">Contact Us</a>
+                    <a href="mailto:media@igbadun.co.uk">Media Enquiries</a>
+                    <a href="mailto:volunteer@igbadun.co.uk">Volunteer</a>
+                    <span class="coming-soon">Newsletter (coming soon)</span>
+                </div>
+            </div>
+            <div class="footer-social">
+                <a href="https://tr.ee/8bm4xNWZfX" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook" aria-hidden="true"></i></a>
+                <a href="https://tr.ee/PLSa9Wnz99" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                <a href="https://tr.ee/Q1Iue9vkQL" aria-label="YouTube" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+                <a href="https://tr.ee/6f3mAfX8U2" aria-label="TikTok" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok" aria-hidden="true"></i></a>
             </div>
         </div>
-        <div class="footer-social">
-            <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-            <a href="https://www.instagram.com/igbadun_uk" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-            <a href="https://www.youtube.com/@Ìgbà-Dún" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
-                <i class="fab fa-youtube"></i>
-            </a>
-            <a href="http://www.tiktok.com/@igba_dun" aria-label="TikTok" target="_blank" rel="noopener noreferrer">
-                <i class="fab fa-tiktok"></i>
-            </a>
+        <div class="footer-bottom">
+            <p>&copy; <span data-year>2026</span> Ìgbà-Dún. All rights reserved.</p>
         </div>
-    </div>
-    <div class="footer-bottom">
-        <p>&copy; 2024 Ìgbà-Dún. All rights reserved.</p>
-    </div>
-</footer>
+    </footer>
 
-    <style>
-        .hero-section {
-            background: linear-gradient(to right, rgba(44, 82, 130, 0.9), rgba(44, 82, 130, 0.7));
-            color: white;
-            padding: 6rem 2rem 4rem;
-            text-align: center;
-            margin-bottom: 3rem;
-            margin-top: 60px;
-        }
-
-        .activities-section,
-        .special-events-section,
-        .beneficiaries-section {
-            padding: 4rem 0;
-        }
-
-        .section-title {
-            text-align: center;
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 3rem;
-        }
-
-        .activities-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 4rem;
-        }
-
-        .activity-card {
-            background: white;
-            border-radius: 8px;
-            padding: 2rem;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .activity-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .activity-icon {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-
-        .activity-card h3 {
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
-            text-align: center;
-        }
-
-        .activity-features {
-            list-style: none;
-            padding: 0;
-        }
-
-        .activity-features li {
-            margin-bottom: 1rem;
-            padding-left: 1.5rem;
-            position: relative;
-            line-height: 1.6;
-        }
-
-        .activity-features li::before {
-            content: "•";
-            color: var(--primary-color);
-            position: absolute;
-            left: 0;
-        }
-
-        .special-events-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .special-event-card {
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .special-event-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .event-image {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .event-content {
-            padding: 1.5rem;
-        }
-
-        .event-content h3 {
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-            font-size: 1.25rem;
-        }
-
-        .event-content p {
-            color: var(--text-light);
-            line-height: 1.6;
-        }
-
-        .beneficiaries-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .beneficiary-card {
-            background: white;
-            border-radius: 8px;
-            padding: 2rem;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-
-        .beneficiary-card h3 {
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-            font-size: 1.25rem;
-        }
-
-        .beneficiary-card p {
-            color: var(--text-light);
-            line-height: 1.6;
-        }
-
-        @media (max-width: 768px) {
-            .activities-grid,
-            .special-events-grid,
-            .beneficiaries-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .activity-card,
-            .special-event-card,
-            .beneficiary-card {
-                margin-bottom: 1.5rem;
-            }
-        }
-    </style>
+    <script src="script.js" defer></script>
 </body>
 </html>
