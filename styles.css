@@ -932,13 +932,36 @@ textarea:focus-visible {
 
 .footer-bottom {
     text-align: center;
-    padding-top: 2rem;
+    padding: 2rem 1.5rem 0;
     margin-top: 3rem;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .footer-bottom p {
     color: rgba(255, 255, 255, 0.6);
+}
+
+.oscr-badge {
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.oscr-badge img {
+    display: block;
+    width: 80px;
+    height: 80px;
+    border-radius: 4px;
+}
+
+.footer-bottom .charity-statement {
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 760px;
+    margin: 0 auto 0.75rem;
+}
+
+.charity-statement a {
+    color: var(--secondary-color);
+    font-weight: 600;
 }
 
 /* --------------------------------------------------------------------------
