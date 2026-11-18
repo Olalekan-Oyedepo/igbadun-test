@@ -10,151 +10,53 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        /* Additional styles for the form */
-        .form-container {
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 20px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .form-section {
-            margin-bottom: 30px;
-        }
-
-        .form-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-        }
-
-        @media (min-width: 768px) {
-            .form-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        .form-label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: 500;
-        }
-
-        .form-input,
-        .form-select,
-        .form-textarea {
-            width: 100%;
-            padding: 8px 12px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 16px;
-        }
-
-        .form-textarea {
-            min-height: 100px;
-        }
-
-        .checkbox-group {
-            margin-top: 10px;
-        }
-
-        .checkbox-label {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 10px;
-        }
-
-        .checkbox-input {
-            margin-right: 10px;
-            margin-top: 4px;
-        }
-
-        .submit-button {
-            background-color: #9B4819;
-            color: white;
-            padding: 12px 24px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-            font-weight: 500;
-            transition: background-color 0.3s;
-        }
-
-        .submit-button:hover {
-            background-color: #7C3A14;
-        }
-
-        .error-message {
-            color: #dc2626;
-            font-size: 14px;
-            margin-top: 4px;
-        }
-
-        .success-message {
-            color: #059669;
-            background-color: #d1fae5;
-            padding: 12px;
-            border-radius: 4px;
-            margin-bottom: 20px;
-        }
-
-        .error {
-            border-color: #dc2626 !important;
-        }
-
-        .required-field::after {
-            content: '*';
-            color: #dc2626;
-            margin-left: 4px;
-        }
-    </style>
 </head>
 <body>
     <!-- Top Bar -->
-    <div class="top-bar" role="banner">
-    <div class="container">
-        <div class="nav-links">
-            <a href="values.html" class="nav-link">Values</a>
-            <a href="activities.html" class="nav-link">Activities</a>
-            <a href="events.html" class="nav-link">Events</a>
-            <a href="resources.html" class="nav-link">Resources</a>
-        </div>
-        <div class="nav-right">
-            <div class="social-icons">
-                <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                <a href="https://www.instagram.com/igbadun_uk" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                <a href="https://www.youtube.com/@Ìgbà-Dún" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
-                    <i class="fab fa-youtube"></i>
-                </a>
-                <a href="http://www.tiktok.com/@igba_dun" aria-label="TikTok" target="_blank" rel="noopener noreferrer">
-                    <i class="fab fa-tiktok"></i>
-                </a>
+    <header class="top-bar">
+        <div class="container">
+            <a href="index.html" class="brand">Ìgbà-Dún</a>
+            <nav class="nav-links" id="site-nav" aria-label="Main">
+                <a href="values.html" class="nav-link">Values</a>
+                <a href="activities.html" class="nav-link">Activities</a>
+                <a href="events.html" class="nav-link">Events</a>
+                <a href="resources.html" class="nav-link">Resources</a>
+            </nav>
+            <div class="nav-right">
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook" aria-hidden="true"></i></a>
+                    <a href="https://www.instagram.com/igbadun_uk" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                    <a href="https://www.youtube.com/@Ìgbà-Dún" aria-label="YouTube" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+                    <a href="https://www.tiktok.com/@igba_dun" aria-label="TikTok" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok" aria-hidden="true"></i></a>
+                </div>
+                <a href="#" class="donate-button">Donate</a>
+                <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+                    <i class="fas fa-bars" aria-hidden="true"></i>
+                    <i class="fas fa-times" aria-hidden="true"></i>
+                </button>
             </div>
-            <a href="#" class="donate-button">Donate</a>
         </div>
-    </div>
-</div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section page-hero">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <a href="index.html" class="logo-link">Ìgbà-Dún</a>
+                <span>Become a Member</span>
+            </h1>
+            <p class="hero-subtitle">Join our vibrant community and be part of celebrating Yoruba culture in Scotland</p>
+        </div>
+    </section>
 
     <!-- Main Content -->
+    <main class="main-content">
     <div class="form-container">
-        <h1 class="section-title">Become a Member</h1>
-        <p class="section-description">Join our vibrant community and be part of celebrating Yoruba culture in Scotland</p>
-
-        <form id="membershipForm" onsubmit="handleSubmit(event)" class="space-y-8">
+        <form id="membershipForm" onsubmit="handleSubmit(event)">
             <!-- Personal Information Section -->
             <div class="form-section">
-                <h2 class="text-2xl font-semibold mb-4">Personal Information</h2>
+                <h2>Personal Information</h2>
                 <div class="form-grid">
                     <div class="form-group">
                         <label class="form-label required-field" for="fullName">Full Name</label>
@@ -190,7 +92,7 @@
 
             <!-- Background and Interests Section -->
             <div class="form-section">
-                <h2 class="text-2xl font-semibold mb-4">Background and Interests</h2>
+                <h2>Background and Interests</h2>
                 
                 <div class="form-group">
                     <label class="form-label required-field">What is your current level of familiarity with Yorùbá language?</label>
@@ -260,7 +162,7 @@
 
             <!-- Commitment Section -->
             <div class="form-section">
-                <h2 class="text-2xl font-semibold mb-4">Commitment</h2>
+                <h2>Commitment</h2>
                 
                 <div class="form-group">
                     <label class="form-label required-field">Are you able to commit to regular attendance at club meetings and events?</label>
@@ -306,12 +208,12 @@
 
             <!-- Agreements Section -->
             <div class="form-section">
-                <h2 class="text-2xl font-semibold mb-4">Agreements</h2>
+                <h2>Agreements</h2>
                 
                 <div class="checkbox-group">
                     <label class="checkbox-label">
                         <input type="checkbox" name="agreements" value="codeOfConduct" class="checkbox-input" required>
-                        I have read and agree to abide by Ìgbà-Dún's <a href="values.html" target="_blank" class="text-primary">Code of Conduct and Values and Principles</a>.
+                        I have read and agree to abide by Ìgbà-Dún's <a href="values.html" target="_blank">Code of Conduct and Values and Principles</a>.
                     </label>
                     <label class="checkbox-label">
                         <input type="checkbox" name="agreements" value="applicationReview" class="checkbox-input" required>
@@ -326,49 +228,48 @@
 
             <div id="formMessage" class="success-message" style="display: none;"></div>
 
-            <div style="text-align: center;">
+            <div class="form-actions">
                 <button type="submit" class="submit-button">Submit Application</button>
             </div>
         </form>
     </div>
+    </main>
 
     <!-- Footer -->
-<footer class="site-footer">
-    <div class="footer-content">
-        <div class="footer-logo">
-            <h2>Ìgbà-Dún</h2>
-            <p>Celebrating Yoruba Culture in Scotland</p>
-        </div>
-        <div class="footer-links">
-            <div class="footer-section">
-                <h4>Quick Links</h4>
-                <a href="values.html">Our Values</a>
-                <a href="activities.html">Activities</a>
-                <a href="events.html">Events</a>
-                <a href="resources.html">Resources</a>
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h2>Ìgbà-Dún</h2>
+                <p>Celebrating Yoruba Culture in Scotland</p>
             </div>
-            <div class="footer-section">
-                <h4>Connect</h4>
-                <a href="#">Contact Us</a>
-                <a href="#">Newsletter</a>
-                <a href="#">Volunteer</a>
+            <div class="footer-links">
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="values.html">Our Values</a>
+                    <a href="activities.html">Activities</a>
+                    <a href="events.html">Events</a>
+                    <a href="resources.html">Resources</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <a href="#">Contact Us</a>
+                    <a href="#">Newsletter</a>
+                    <a href="#">Volunteer</a>
+                </div>
+            </div>
+            <div class="footer-social">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook" aria-hidden="true"></i></a>
+                <a href="https://www.instagram.com/igbadun_uk" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                <a href="https://www.youtube.com/@Ìgbà-Dún" aria-label="YouTube" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+                <a href="https://www.tiktok.com/@igba_dun" aria-label="TikTok" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok" aria-hidden="true"></i></a>
             </div>
         </div>
-        <div class="footer-social">
-            <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-            <a href="https://www.instagram.com/igbadun_uk" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-            <a href="https://www.youtube.com/@Ìgbà-Dún" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
-                <i class="fab fa-youtube"></i>
-            </a>
-            <a href="http://www.tiktok.com/@igba_dun" aria-label="TikTok" target="_blank" rel="noopener noreferrer">
-                <i class="fab fa-tiktok"></i>
-            </a>
+        <div class="footer-bottom">
+            <p>&copy; <span data-year>2026</span> Ìgbà-Dún. All rights reserved.</p>
         </div>
-    </div>
-    <div class="footer-bottom">
-        <p>&copy; 2024 Ìgbà-Dún. All rights reserved.</p>
-    </div>
-</footer>
+    </footer>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
