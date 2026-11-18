@@ -22,11 +22,6 @@
     --background-light: #F7FAFC;
     --white: #FFFFFF;
 
-    /* Form feedback (used only for errors and confirmations) */
-    --error-color: #C53030;
-    --success-color: #276749;
-    --success-background: #F0FFF4;
-
     --gradient-primary: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
 
     --font-heading: 'Playfair Display', Georgia, serif;
@@ -229,8 +224,7 @@ textarea:focus-visible {
 .donate-button,
 .cta-button,
 .involvement-button,
-.resource-link,
-.submit-button {
+.resource-link {
     display: inline-block;
     border-radius: var(--border-radius);
     text-decoration: none;
@@ -290,20 +284,6 @@ textarea:focus-visible {
     background-color: var(--secondary-color);
     color: var(--primary-dark);
     transform: translateY(-2px);
-}
-
-.submit-button {
-    background-color: var(--secondary-color);
-    color: var(--primary-dark);
-    border: none;
-    padding: 1rem 2.5rem;
-    font-size: 1rem;
-}
-
-.submit-button:hover {
-    background-color: var(--secondary-hover);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-subtle);
 }
 
 /* --------------------------------------------------------------------------
@@ -785,128 +765,89 @@ textarea:focus-visible {
     flex-grow: 1;
 }
 
+.media-grid {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+.media-card p {
+    flex-grow: 0;
+}
+
+.media-embed {
+    width: 100%;
+    height: 352px;
+    border: 0;
+    border-radius: var(--border-radius);
+    margin-bottom: 1.5rem;
+}
+
+.coming-soon-panel {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    background-color: var(--background-light);
+    border: 2px dashed var(--secondary-color);
+    border-radius: var(--border-radius);
+}
+
+.coming-soon-panel i {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.coming-soon-panel h3 {
+    color: var(--primary-color);
+    font-size: 1.4rem;
+    margin-bottom: 0.75rem;
+}
+
+.coming-soon-panel p {
+    color: var(--text-light);
+}
+
 /* --------------------------------------------------------------------------
-   12. Membership form
+   12. Membership page (embedded Google Form)
    -------------------------------------------------------------------------- */
-.form-container {
+.membership-wrapper {
     max-width: 800px;
     margin: 0 auto 4rem;
-    padding: 2.5rem;
+    padding: 0 1.5rem;
+}
+
+.membership-intro {
     background: var(--white);
+    border-left: 4px solid var(--secondary-color);
     border-radius: var(--border-radius);
     box-shadow: var(--shadow-subtle);
-}
-
-.form-section {
-    margin-bottom: 2.5rem;
-}
-
-.form-section h2 {
-    font-family: var(--font-heading);
-    font-size: 1.6rem;
-    color: var(--primary-color);
-    padding-bottom: 0.5rem;
+    padding: 1.5rem 2rem;
     margin-bottom: 1.5rem;
-    border-bottom: 2px solid var(--secondary-color);
 }
 
-.form-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0 1.5rem;
-}
-
-.form-group {
-    margin-bottom: 1.25rem;
-}
-
-.form-label {
-    display: block;
-    margin-bottom: 0.4rem;
-    font-weight: 600;
-}
-
-.form-input,
-.form-select,
-.form-textarea {
-    width: 100%;
-    padding: 0.7rem 0.9rem;
-    border: 1px solid var(--input-border);
-    border-radius: var(--border-radius-small);
-    font-family: inherit;
-    font-size: 1rem;
-    color: var(--text-dark);
-    background-color: var(--white);
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.form-input:focus,
-.form-select:focus,
-.form-textarea:focus {
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(44, 82, 130, 0.2);
-    outline: none;
-}
-
-.form-textarea {
-    min-height: 120px;
-    resize: vertical;
-}
-
-.checkbox-group {
+.membership-intro p + p {
     margin-top: 0.5rem;
 }
 
-.checkbox-label {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.75rem;
-    margin-bottom: 0.6rem;
-    cursor: pointer;
+.form-fallback {
+    color: var(--text-light);
+    font-size: 0.95rem;
 }
 
-.checkbox-label input {
-    margin-top: 0.3rem;
-    flex-shrink: 0;
-    width: 1.1rem;
-    height: 1.1rem;
-    accent-color: var(--primary-color);
-}
-
-.form-container a {
+.membership-intro a {
     color: var(--primary-color);
     font-weight: 600;
 }
 
-.form-actions {
-    text-align: center;
-}
-
-.required-field::after {
-    content: '*';
-    color: var(--error-color);
-    margin-left: 4px;
-}
-
-.error-message {
-    color: var(--error-color);
-    font-size: 0.875rem;
-    margin-top: 0.25rem;
-}
-
-.form-input.error,
-.form-textarea.error,
-.form-select.error {
-    border-color: var(--error-color);
-}
-
-.success-message {
-    color: var(--success-color);
-    background-color: var(--success-background);
-    border: 1px solid var(--success-color);
-    padding: 1rem;
-    border-radius: var(--border-radius-small);
-    margin-bottom: 1.5rem;
+/* Heights match the form's length so it shows without an inner scrollbar */
+.form-embed iframe {
+    display: block;
+    width: 100%;
+    height: 3550px;
+    border: 0;
 }
 
 /* --------------------------------------------------------------------------
@@ -963,6 +904,7 @@ textarea:focus-visible {
 
 .footer-section .coming-soon {
     display: block;
+    white-space: nowrap;
     color: rgba(255, 255, 255, 0.5);
     font-style: italic;
     margin-bottom: 0.5rem;
@@ -1122,7 +1064,7 @@ textarea:focus-visible {
     .beneficiaries-grid,
     .resources-grid,
     .principles-grid,
-    .form-grid {
+    .media-grid {
         grid-template-columns: 1fr;
     }
 
@@ -1138,9 +1080,8 @@ textarea:focus-visible {
         padding: 1.5rem;
     }
 
-    .form-container {
-        padding: 1.5rem;
-        margin: 0 1rem 3rem;
+    .form-embed iframe {
+        height: 4250px;
     }
 
     .footer-content {
